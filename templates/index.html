@@ -3,15 +3,24 @@
 <div class="table-responsive">
     <table class="table">
             <tr>
-                    <th>Host</th><th>Status</th><th>Actions</th>
+                    <th>Host</th><th>MAC</th><th>IP</th><th>Status</th><th>Actions</th>
             </tr>
             {% for host in data %}
             <tr>
                     <td>{{ host.inputHost }}</td>
-                    <td>DOWN</td>
+                    <td>{{ host.inputMAC }}</td>
+                    <td>{{ host.inputIP }}</td>
+                    <td>
+                            {% if host.status == 0 %}
+                            <a href="{{ url_for('wakeup', host_id = host.eid) }}">Wake Up</a>
+                            {% else %}
+                            UP
+                            {% endif %}
+                    </td>
                     <td>
                             <a href="{{ url_for('add', host_id = host.eid) }}">Edit</a>
                             <a href="{{ url_for('delete', host_id = host.eid) }}">Delete</a>
+                            <a href="{{ url_for('update_status', host_id = host.eid) }}">Check</a>
                     </td>
             </tr>
             {% endfor %}
