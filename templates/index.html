@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="table-responsive">
+    <table class="table">
+            <tr>
+                    <th>Host</th><th>Status</th><th>Actions</th>
+            </tr>
+            {% for host in data %}
+            <tr>
+                    <td>{{ host.inputHost }}</td>
+                    <td>DOWN</td>
+                    <td>
+                            <a href="{{ url_for('add', host_id = host.eid) }}">Edit</a>
+                            <a href="{{ url_for('delete', host_id = host.eid) }}">Delete</a>
+                    </td>
+            </tr>
+            {% endfor %}
+    </table>
+</div>
+{% endblock %}

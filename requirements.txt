@@ -1,0 +1,4 @@
+flask
+ping
+wakeonlan
+tinydb

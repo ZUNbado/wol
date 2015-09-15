@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block body %}
+<form class="form-signin" method="post" action="?">
+        <h2 class="form-signin-heading">Add WakeOnLan Host</h2>
+        <label for="inputHost" class="sr-only">Host name</label>
+        <input value="{{ data.inputHost }}" name="inputHost" type="text" id="inputHost" class="form-control" placeholder="Host name" required autofocus>
+        <label for="inputMAC" class="sr-only">MAC Address</label>
+        <input value="{{ data.inputMAC }}" name="inputMAC" type="text" id="inputMAC" class="form-control" placeholder="MAC Address" required autofocus>
+        <label for="inputIP" class="sr-only">IP Address</label>
+        <input value="{{ data.inputIP }}" name="inputIP" type="text" id="inputIP" class="form-control" placeholder="IP Address" required autofocus>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
+</form>
+{% endblock %}
